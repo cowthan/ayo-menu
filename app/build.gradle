@@ -68,11 +68,10 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile configer['lib_appcompat']
-    compile project(':ayo-menu-sample')
+    compile project(':ayo-menu-lib')
 
 
 
     compile 'com.jakewharton:butterknife:8.2.1'
     apt 'com.jakewharton:butterknife-compiler:8.2.1'
-    compile project(path: ':ayo-menu-sample')
 }
