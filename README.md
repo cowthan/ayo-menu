@@ -1,6 +1,19 @@
 # ayo-menu
 写demo所用的基本框架，以ViewPager嵌套ViewPager，任意配置菜单，可以方便的分类罗列demo
 
+没整到jcenter上，暂时就用aar包吧，也挺省劲：[下载地址](./img/ayo-menu-lib-release.aar)  
+下载下来文件名是：ayo-menu-lib-release.aar，拷到libs目录里  
+然后在build.gradle里引入：
+```
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+compile(name:'ayo-menu-lib-release', ext:'aar')
+```
+
 
 ## 分类菜单功能
 
