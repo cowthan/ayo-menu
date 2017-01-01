@@ -21,7 +21,7 @@ public class MenuItemFragment extends SBFragment {
 
 	@Override
 	protected int getLayoutId() {
-		return R.layout.frag_menu_item;
+		return R.layout.frag_menu_item2;
 	}
 
 	@Override
@@ -64,7 +64,7 @@ public class MenuItemFragment extends SBFragment {
 					Intent intent = new Intent(getActivity(), leaf.activityClass);
 					getActivity().startActivity(intent);
 				}else{
-					Toast.makeText(getActivity(), "One Piece of Shit", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getActivity(), "sorry，此功能尚未实现", Toast.LENGTH_SHORT).show();
 				}
 			}
 		});

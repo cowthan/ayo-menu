@@ -15,25 +15,9 @@ public class MainActivity extends MainPagerActivity {
     private List<Menu> menus;
 
     @Override
-    public List<Menu> getMenus() {
-        return menus;
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         init();
         super.onCreate(savedInstanceState);
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
     }
 
     private void init(){
@@ -46,7 +30,7 @@ public class MainActivity extends MainPagerActivity {
             MenuItem menuItem = new MenuItem("TextView", R.drawable.weixin_normal, R.drawable.weixin_pressed);
             m.addMenuItem(menuItem);
             {
-                menuItem.addLeaf(new Leaf("1111", "", null));
+                menuItem.addLeaf(new Leaf("1111", "", ModuleMenuActivity.class));
                 menuItem.addLeaf(new Leaf("2222", "", null));
                 menuItem.addLeaf(new Leaf("3333", "", null));
                 menuItem.addLeaf(new Leaf("44444", "", null));
@@ -93,5 +77,10 @@ public class MainActivity extends MainPagerActivity {
 
 
         /////menu finished
+    }
+
+    @Override
+    public List<Menu> getMenus() {
+        return menus;
     }
 }

@@ -1,6 +1,5 @@
 package org.ayo.sample.menu;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -9,12 +8,13 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import org.ayo.sample.menu.attacher.ActivityAttacher;
 import org.ayo.sample.menu.widget.TitleBar;
 
 import java.io.Serializable;
 
 
-public abstract class DemoMenuActivity extends Activity{
+public abstract class DemoMenuActivityAttacher extends ActivityAttacher {
 
 	public class DemoInfo implements Serializable {
 
@@ -84,9 +84,6 @@ public abstract class DemoMenuActivity extends Activity{
 
 	}
 
-	protected Activity getActivity(){
-		return this;
-	}
 
 	private TitleBar.Callback titlebarCallback = new TitleBar.Callback() {
 
