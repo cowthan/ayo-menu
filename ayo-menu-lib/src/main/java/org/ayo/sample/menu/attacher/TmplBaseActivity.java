@@ -11,7 +11,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.AttributeSet;
 import android.view.ActionMode;
 import android.view.ContextMenu;
@@ -33,7 +33,7 @@ import android.view.WindowManager;
  *
  * Created by Administrator on 2016/1/19.
  */
-public abstract class TmplBaseActivity extends FragmentActivity {
+public abstract class TmplBaseActivity extends AppCompatActivity {
 
     private ActivityAttacher attacher;
     private SimpleBundle bundle;
