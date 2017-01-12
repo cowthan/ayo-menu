@@ -1,10 +1,13 @@
 package org.ayo.sample.menu;
 
 import android.graphics.Color;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
+import org.ayo.component.MasterFragment;
 import org.ayo.sample.menu.widget.CustomRadioGroup;
 
 import java.util.ArrayList;
@@ -15,7 +18,7 @@ import java.util.ArrayList;
  * @author cowthan
  *
  */
-public class MenuPagerFragment extends SBFragment implements View.OnClickListener{
+public class MenuPagerFragment extends MasterFragment implements View.OnClickListener{
 
 	private CustomRadioGroup footer;
 	private ViewPager body;
@@ -28,18 +31,21 @@ public class MenuPagerFragment extends SBFragment implements View.OnClickListene
 	}
 
 	@Override
+	public void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		outState.putSerializable("menu", menu);
+	}
+
+	@Override
 	protected int getLayoutId() {
 		return R.layout.frag_memu_pager;
 	}
 
-
 	@Override
-	public void onCreateView(View root) {
-		initContentView();
-	}
-
-
-	public void initContentView() {
+	protected void onCreate2(View contentView, @Nullable Bundle savedInstanceState) {
+		if(savedInstanceState != null){
+			menu = (Menu) savedInstanceState.getSerializable("menu");
+		}
 		// 底部
 		footer = (CustomRadioGroup) findViewById(R.id.main_footer);
 		footer.setBackgroundColor(Color.parseColor("#94d8b6"));
@@ -52,8 +58,7 @@ public class MenuPagerFragment extends SBFragment implements View.OnClickListene
 		// 主体
 		body = (ViewPager) findViewById(R.id.main_body);
 
-		final MainBodyPageChangeListener bodyChangeListener = new MainBodyPageChangeListener(
-				footer);
+		final MainBodyPageChangeListener bodyChangeListener = new MainBodyPageChangeListener(footer);
 		body.addOnPageChangeListener(bodyChangeListener);
 
 		initFragments();
@@ -70,8 +75,18 @@ public class MenuPagerFragment extends SBFragment implements View.OnClickListene
 		});
 
 		//footer.setItemNewsCount(1, 10);// 设置消息数量
+	}
+
+	@Override
+	protected void onDestroy2() {
 
 	}
+
+	@Override
+	protected void onPageVisibleChanged(boolean visible, boolean isFirstTimeVisible, @Nullable Bundle savedInstanceState) {
+
+	}
+
 
 	private void initFragments() {
 		fragments.clear();

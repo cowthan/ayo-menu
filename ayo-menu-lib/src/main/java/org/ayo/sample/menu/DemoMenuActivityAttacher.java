@@ -2,19 +2,20 @@ package org.ayo.sample.menu;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import org.ayo.sample.menu.attacher.ActivityAttacher;
+import org.ayo.component.MasterFragment;
 import org.ayo.sample.menu.widget.TitleBar;
 
 import java.io.Serializable;
 
 
-public abstract class DemoMenuActivityAttacher extends ActivityAttacher {
+public abstract class DemoMenuActivityAttacher extends MasterFragment {
 
 	public class DemoInfo implements Serializable {
 
@@ -33,10 +34,12 @@ public abstract class DemoMenuActivityAttacher extends ActivityAttacher {
 	public abstract DemoInfo[] getDemoMenus();
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.frag_menu_item);
+	protected int getLayoutId() {
+		return R.layout.frag_menu_item;
+	}
 
+	@Override
+	protected void onCreate2(View contentView, @Nullable Bundle savedInstanceState) {
 		TitleBar titlebar = (TitleBar) findViewById(R.id.titlebar);
 		titlebar.callback(titlebarCallback)
 				.leftButton(R.drawable.ayo_sample_menu_sel_arrow_down_red)
@@ -47,6 +50,17 @@ public abstract class DemoMenuActivityAttacher extends ActivityAttacher {
 		for(DemoInfo leaf: getDemoMenus()){
 			addButton(leaf);
 		}
+	}
+
+
+	@Override
+	protected void onDestroy2() {
+
+	}
+
+	@Override
+	protected void onPageVisibleChanged(boolean visible, boolean isFirstTimeVisible, @Nullable Bundle savedInstanceState) {
+
 	}
 
 	private LinearLayout ll_root;

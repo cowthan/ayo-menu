@@ -10,7 +10,7 @@ import android.widget.Toast;
  * 
  * @author pengjun
  */
-public class Toaster {
+public class ToasterDebug {
 
     private static Application app;
 
@@ -23,7 +23,7 @@ public class Toaster {
      */
     private static Toast mToast = null;
 
-    private Toaster() {
+    private ToasterDebug() {
     }
 
     public static void toastLong(final String tip){

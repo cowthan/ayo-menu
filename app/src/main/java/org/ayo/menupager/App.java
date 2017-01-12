@@ -3,7 +3,8 @@ package org.ayo.menupager;
 import android.app.Application;
 import android.util.Log;
 
-import org.ayo.sample.menu.notify.Toaster;
+import org.ayo.sample.menu.notify.ToasterDebug;
+
 
 /**
  * Created by Administrator on 2017/1/1.
@@ -18,6 +19,6 @@ public class App extends Application {
         super.onCreate();
         Log.e("sample", "Application---onCreate()");
         app = this;
-        Toaster.init(app);
+        ToasterDebug.init(app);
     }
 }

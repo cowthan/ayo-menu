@@ -2,16 +2,19 @@ package org.ayo.sample.menu;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import org.ayo.sample.menu.attacher.ActivityAttacher;
+import org.ayo.component.Master;
+import org.ayo.component.MasterFragment;
 
 
-public class MenuItemFragment extends SBFragment {
+public class MenuItemFragment extends MasterFragment {
 
 	private MenuItem menuItem;
 
@@ -20,16 +23,35 @@ public class MenuItemFragment extends SBFragment {
 	}
 
 	@Override
+	public void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		outState.putSerializable("menuItem", menuItem);
+	}
+
+	@Override
 	protected int getLayoutId() {
 		return R.layout.frag_menu_item2;
 	}
 
 	@Override
-	public void onCreateView(View root) {
+	protected void onCreate2(View contentView, @Nullable Bundle savedInstanceState) {
+		if(savedInstanceState != null){
+			menuItem = (MenuItem) savedInstanceState.getSerializable("menuItem");
+		}
 		ll_root = (LinearLayout) findViewById(R.id.ll_root);
 		for(Leaf leaf: menuItem.subMenus){
 			addButton(leaf);
 		}
+	}
+
+	@Override
+	protected void onDestroy2() {
+
+	}
+
+	@Override
+	protected void onPageVisibleChanged(boolean visible, boolean isFirstTimeVisible, @Nullable Bundle savedInstanceState) {
+
 	}
 
 	private LinearLayout ll_root;
@@ -59,7 +81,7 @@ public class MenuItemFragment extends SBFragment {
 			@Override
 			public void onClick(View v) {
 				if(leaf.attacherClass != null){
-					ActivityAttacher.startActivity(getActivity(), leaf.attacherClass);
+					Master.startPage(getActivity(), leaf.attacherClass, null);
 				}else if(leaf.activityClass != null){
 					Intent intent = new Intent(getActivity(), leaf.activityClass);
 					getActivity().startActivity(intent);

@@ -27,9 +27,16 @@ android {
     }
 }
 
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile configer['lib_appcompat']
+    compile(name:'ayo-component', ext:'aar')
 }
 
 

@@ -153,7 +153,7 @@ public class TouchBoard extends View {
 
     private Callback callback;
 
-    public void setCallback(TouchBoard.Callback callback){
+    public void setCallback(Callback callback){
         this.callback = callback;
     }
 

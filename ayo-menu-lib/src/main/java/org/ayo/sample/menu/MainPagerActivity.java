@@ -1,12 +1,11 @@
 package org.ayo.sample.menu;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
+import org.ayo.component.MasterActivity;
 import org.ayo.sample.menu.widget.CustomRadioGroup;
 import org.ayo.sample.menu.widget.TitleBar;
 
@@ -20,7 +19,7 @@ import java.util.List;
  * 后来一想，左右滑动切换时，标题栏不能滑动吧，所以就在主Activity里加标题栏吧
  *
  */
-public abstract class MainPagerActivity extends FragmentActivity implements View.OnClickListener{
+public abstract class MainPagerActivity extends MasterActivity implements View.OnClickListener{
 	
 	private CustomRadioGroup footer;
 	private ViewPager body;
@@ -150,12 +149,6 @@ public abstract class MainPagerActivity extends FragmentActivity implements View
 	@Override
 	public void onClick(View v) {
 
-	}
-
-
-
-	protected Activity getActivity(){
-		return this;
 	}
 
 

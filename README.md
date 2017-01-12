@@ -229,5 +229,5 @@ touchBoard_left.setCallback(new TouchBoard.Callback() {
 ## 5 提供了几个常用的补间动画
 
 没啥大用，对动画感兴趣可以参考这个项目：  
-https://github.com/cowthan/UI-Robot-Anim
+https://github.com/cowthan/AyoAnim
 

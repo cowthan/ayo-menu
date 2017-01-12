@@ -15,6 +15,11 @@ public class MainActivity extends MainPagerActivity {
     private List<Menu> menus;
 
     @Override
+    public boolean isSwipebackEnabled() {
+        return true;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         init();
         super.onCreate(savedInstanceState);

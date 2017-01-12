@@ -2,7 +2,7 @@ package org.ayo.sample.menu;
 
 import android.app.Activity;
 
-import org.ayo.sample.menu.attacher.ActivityAttacher;
+import org.ayo.component.MasterFragment;
 
 import java.io.Serializable;
 
@@ -13,10 +13,10 @@ import java.io.Serializable;
 public class Leaf implements Serializable{
     public String name;
     public String htmlAssetsPath;
-    public Class<? extends ActivityAttacher> attacherClass;
+    public Class<? extends MasterFragment> attacherClass;
     public Class<? extends Activity> activityClass;
 
-    public Leaf(String name, String htmlAssetsPath, Class<? extends ActivityAttacher> attacherClass){
+    public Leaf(String name, String htmlAssetsPath, Class<? extends MasterFragment> attacherClass){
         this.name = name;
         this.htmlAssetsPath = htmlAssetsPath;
         this.attacherClass = attacherClass;

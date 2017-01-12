@@ -3,7 +3,7 @@ package org.ayo.menupager;
 import android.view.View;
 
 import org.ayo.sample.menu.DemoMenuActivityAttacher;
-import org.ayo.sample.menu.notify.Toaster;
+import org.ayo.sample.menu.notify.ToasterDebug;
 
 /**
  * Created by Administrator on 2017/1/1.
@@ -21,13 +21,13 @@ public class ModuleMenuActivity extends DemoMenuActivityAttacher {
                 new DemoInfo("示例1", new View.OnClickListener(){
                     @Override
                     public void onClick(View v) {
-                        Toaster.toastShort("示例1");
+                        ToasterDebug.toastShort("示例1");
                     }
                 }),
                 new DemoInfo("示例2", new View.OnClickListener(){
                     @Override
                     public void onClick(View v) {
-                        Toaster.toastShort("示例2");
+                        ToasterDebug.toastShort("示例2");
                     }
                 })
         };
