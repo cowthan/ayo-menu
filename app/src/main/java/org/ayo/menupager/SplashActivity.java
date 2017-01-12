@@ -23,7 +23,7 @@ public class SplashActivity extends MasterActivity {
             public void run() {
                 Intent i = new Intent(getActivity(), MainActivity.class);
                 startActivity(i);
-                overridePendingTransition(R.anim.ayo_fade_in, R.anim.ayo_fade_out);
+                overridePendingTransition(R.anim.base_fade_in, R.anim.base_fade_out);
                 finish();
             }
         }, 1500);
